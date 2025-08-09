@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'accounts',
     'products',
     'orders',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -90,6 +91,15 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',  # Added for Swagger
+}
+
+# drf-spectacular settings
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'WaterMe API',
+    'DESCRIPTION': 'API for WaterMe, a water delivery service',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': True,
 }
 
 # Internationalization

@@ -11,8 +11,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-vr)y%mq76yvf8s!clo-1o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
-
+ALLOWED_HOSTS = ['waterme-be.onrender.com', 'localhost', '127.0.0.1']
 # Application definition
 INSTALLED_APPS = [
     "django.contrib.admin",

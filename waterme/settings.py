@@ -12,6 +12,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-vr)y%mq76yvf8s!clo-1o
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = ['waterme-be.onrender.com', 'localhost', '127.0.0.1']
+
 # Application definition
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -25,7 +26,6 @@ INSTALLED_APPS = [
     'accounts',
     'products',
     'orders',
-    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +60,6 @@ TEMPLATES = [
 WSGI_APPLICATION = "waterme.wsgi.application"
 
 # Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 DATABASES = {
     'default': dj_database_url.config(
         default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),
@@ -70,7 +69,6 @@ DATABASES = {
 }
 
 # Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -91,31 +89,19 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',  # Added for Swagger
-}
-
-# drf-spectacular settings
-SPECTACULAR_SETTINGS = {
-    'TITLE': 'WaterMe API',
-    'DESCRIPTION': 'API for WaterMe, a water delivery service',
-    'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': True,
 }
 
 # Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
 LANGUAGE_CODE = "en-us"
-TIME_ZONE = "Africa/Lagos"  # Changed to WAT for your location
+TIME_ZONE = "Africa/Lagos"
 USE_I18N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = 'accounts.User'

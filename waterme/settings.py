@@ -21,8 +21,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'drf_spectacular',
     'rest_framework',
-    'rest_framework_simplejwt',
     'accounts',
     'products',
     'orders',
@@ -87,8 +87,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # REST Framework settings
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'accounts.authentication.WaterMiJWTAuthentication',
     ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Water Mi MVP API',
+    'DESCRIPTION': 'Core MVP API for customer onboarding, vendor discovery, and order delivery workflows.',
+    'VERSION': '1.0.0',
 }
 
 # Internationalization

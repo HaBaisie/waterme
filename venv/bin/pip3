@@ -1,4 +1,4 @@
-#!/mnt/c/Users/HabeebullahiLawal/waterme/venv/bin/python3
+#!/mnt/c/Users/HabeebullahiLawal/waterme/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
